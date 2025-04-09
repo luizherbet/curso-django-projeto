@@ -1,12 +1,12 @@
-<main>
-    <div>
+<div>    <div>
         <form action="">
             <input type="text">
             <button type="submit">Buscar</button>
         </form>
     </div>
     <div class="recipes">
-        {% include "recipes/partials/recipeun.html" %}
+        {% for recipe in recipes %}
+            {% include "recipes/partials/recipeun.html" %} 
+        {% endfor %}
     </div>
-
-</main>
+</div>
