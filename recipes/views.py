@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from utils.recipes.factory import make_recipe
-
+from .models import Recipe
 
 def home(request):
-    return render(request, 'recipes/pages/home.html', context={'recipes' : [make_recipe() for _ in range(10)], "name": "Recipes"})
+    recipe = Recipe.objects.all().order_by('-id')
+    return render(request, 'recipes/pages/home.html', context={'recipes' : recipe, "name": "Recipes"})
 
 def recipe(request, id):
-    return render(request, 'recipes/pages/recipe.html', context={'recipe' : make_recipe(), "name":"Recipes"})
+    return render(request, 'recipes/pages/recipe.html', context={'recipe' : make_recipe(), "name":"Recipes", "is_detail_page":True})

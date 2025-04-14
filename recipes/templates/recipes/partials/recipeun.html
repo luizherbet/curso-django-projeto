@@ -1,6 +1,10 @@
 <div class="recipe">
-    <img src="{{recipe.cover.url}}" alt="">
-    <a href="/recipes/3/"><h3>{{recipe.title}}</h3></a>
+    {% if recipe.cover %}
+        <img src="{{recipe.cover.url}}" alt="">
+    {% endif %}
+    <a href={% url "recipes:detail" recipe.id %}><h3>{{recipe.title}}</h3></a>
     <h4>{{recipe.description}}</h4>
-    <button>comprar</button>
+    {% if is_detail_page is not True %}
+        <button>comprar</button>
+    {% endif %}
 </div>

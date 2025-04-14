@@ -86,4 +86,5 @@ img{
     align-items: center;
     width: 100px;
     margin: 20px;
+    height: fit-content;
 }

@@ -8,9 +8,10 @@ fake = Faker('pt-BR')
 
 def make_recipe():
     return{
+        'id':fake.random_number(digits=2,fix_len=True),
         'title': fake.sentence(nb_words=6),
         'description': fake.sentence(nb_words=12),
-        'cover' : {'url':'https://loremflicker.com/%s/%s/food,cook' % rand_ratio()}
+        'cover' : {'url':'https://loremflickr.com/%s/%s/food,cook' % rand_ratio(),}
     }
 
 if __name__ == '__main__':
